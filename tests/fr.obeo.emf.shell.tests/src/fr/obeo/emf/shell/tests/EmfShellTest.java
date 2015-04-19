@@ -13,7 +13,7 @@ import org.junit.Test;
 import fr.obeo.emf.shell.EmfShell;
 import fr.obeo.emf.shell.ICmd;
 
-public class EmfShellTests {
+public class EmfShellTest {
 
 	private static String[] cmdIdListExpexted = { "ls", "cd", "print", "cat", "pwd",
 	"help"};
