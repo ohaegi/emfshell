@@ -1,0 +1,12 @@
+package fr.obeo.emf.shell.cmd;
+
+import org.eclipse.emf.ecore.EObject;
+
+import fr.obeo.emf.shell.EmfShell;
+
+public interface ICmd {
+	String eval(EObject eObject, EmfShell emfConsole);
+	String help();
+	boolean isCmdCandidate(String cmdStr);
+	String getCmdId();
+}

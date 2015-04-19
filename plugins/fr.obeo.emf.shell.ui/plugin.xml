@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Emf Shell"
+            id="fr.obeo.emf.console.ui">
+      </category>
+      <view
+            name="Emf Shell"
+            icon="icons/sample.gif"
+            category="fr.obeo.emf.console.ui"
+            class="fr.obeo.emf.console.ui.views.EmfConsoleView"
+            id="fr.obeo.emf.console.ui.views.EmfConsoleView">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               ratio="0.5"
+               relative="org.eclipse.ui.views.TaskList"
+               relationship="right"
+               id="fr.obeo.emf.console.ui.views.EmfConsoleView">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="false"
+            id="fr.obeo.emf.console.ui.objectContribution1"
+            objectClass="org.eclipse.emf.ecore.EObject">
+         <menu
+               id="fr.obeo.emf.console.menu1"
+               label="Emf Shell"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="fr.obeo.emf.console.ui.popup.actions.OpenConsole"
+               enablesFor="1"
+               id="fr.obeo.emf.console.newAction"
+               label="Open Shell"
+               menubarPath="fr.obeo.emf.console.menu1/group1">
+         </action>
+      </objectContribution>
+   </extension>
+
+</plugin>

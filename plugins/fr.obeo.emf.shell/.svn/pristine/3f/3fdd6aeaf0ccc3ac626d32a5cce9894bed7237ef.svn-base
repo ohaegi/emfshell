@@ -1,0 +1,31 @@
+package fr.obeo.emf.shell.cmd.impl;
+
+import org.eclipse.emf.ecore.EObject;
+
+import fr.obeo.emf.shell.EmfShell;
+import fr.obeo.emf.shell.cmd.Cmd;
+import fr.obeo.emf.shell.cmd.ICmd;
+
+public class Print extends Cmd implements ICmd {
+	
+	@Override
+	public String getCmdId() {
+		return "print";
+	}
+	
+	public boolean isCmdCandidate(String cmdStr){
+		return super.isCmdCandidate(cmdStr, getCmdId());
+	}
+
+	@Override
+	public String eval(EObject eObject, EmfShell emfConsole) {
+		return print(eObject);
+	}
+	
+	@Override
+	public String help() {
+		String help = "print .\n";
+		help = help + "  print current node.\n";
+		return help;
+	}
+}

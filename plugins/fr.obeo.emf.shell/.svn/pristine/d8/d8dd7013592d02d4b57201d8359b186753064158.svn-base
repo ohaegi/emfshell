@@ -1,0 +1,51 @@
+package fr.obeo.emf.shell.cmd.impl;
+
+import org.eclipse.emf.ecore.EObject;
+
+import fr.obeo.emf.shell.EmfShell;
+import fr.obeo.emf.shell.cmd.Cmd;
+import fr.obeo.emf.shell.cmd.ICmd;
+
+public class Cd extends Cmd implements ICmd{
+
+	@Override
+	public String getCmdId() {
+		return "cd";
+	}
+	
+	@Override
+	public boolean isCmdCandidate(String cmdStr){
+		return super.isCmdCandidate(cmdStr, getCmdId());
+	}
+		
+	@Override 
+	public String eval(EObject eObject, EmfShell emfConsole) {
+		String nodeId = "";
+		if (args.size() == 0) {
+			emfConsole.setCurrentNode(emfConsole.getRootNode());
+		} else if (args.size()> 0) {
+			nodeId = args.get(0);
+		}
+		if ("..".equals(nodeId)) {
+			emfConsole.setParent();
+		}
+		for (EObject currentNode : eObject.eContents()) {
+			if (print(currentNode).equals(nodeId)
+					|| print(currentNode).endsWith("@" + nodeId)) {
+				emfConsole.setCurrentNode(currentNode);
+				return "";
+			}
+		}
+		return "";
+	}
+
+	@Override
+	public String help() {
+		String help = "cd [className@id|..].\n";
+		help = help + "  cd allow to navigate in model.\n";
+		help = help + "   - go to a direct node : cd className@id\n";
+		help = help + "	  - go to parent node : cd ..\n";
+		help = help + "	  - go to root node : cd\n";
+		return help;
+	}
+}

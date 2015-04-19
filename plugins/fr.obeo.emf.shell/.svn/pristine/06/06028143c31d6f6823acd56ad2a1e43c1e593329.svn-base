@@ -1,0 +1,9 @@
+- Mettre des exceptions type plugin sonar
+ * commande inconnue
+ * EObjet inconnue
+ * ...
+- Développer le pendant eclipse headless pour avoir les fonctionnalités hors eclipse
+- Renommer les pluins : 
+ * fr.obeo.emf.console en fr.obeo.emf.shell
+ * fr.obeo.emf.console.ui en fr.obeo.emf.shell.console.ui
+ * fr.obeo.emf.console.headless en fr.obeo.emf.shell.headless

@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Shell Headless
+Bundle-SymbolicName: fr.obeo.emf.shell.headless;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ fr.obeo.emf.shell;bundle-version="1.0.0",
+ org.eclipse.emf.ecore;bundle-version="2.10.2",
+ org.eclipse.emf.ecore.xmi;bundle-version="2.10.2"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ClassPath: .,
+ lib/jansi-1.11.jar,
+ lib/aesh-0.56.1.jar

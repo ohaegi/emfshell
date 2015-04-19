@@ -1,0 +1,28 @@
+package fr.obeo.emf.console.headless;
+
+import java.util.Map;
+
+import org.eclipse.equinox.app.IApplication;
+import org.eclipse.equinox.app.IApplicationContext;
+
+public class Console implements IApplication {
+
+	@Override
+	public Object start(IApplicationContext context) throws Exception {
+		final Map args = context.getArguments();
+		final String[] appArgs = (String[]) args.get("application.args");
+		for (final String arg : appArgs) {
+			System.out.println(arg);
+		}
+		System.out.println("Coucou");
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void stop() {
+		// TODO Auto-generated method stub
+
+	}
+
+}
